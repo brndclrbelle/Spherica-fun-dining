@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete your payment for Spherica Dining.">
+    <title>Payment - Spherica Dining</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Extract query parameters
+            const params = new URLSearchParams(window.location.search);
+            const adults = parseInt(params.get('adults')) || 0;
+            const children = parseInt(params.get('children')) || 0;
+            const totalCost = parseInt(params.get('total')) || 0;
+            const date = params.get('date') || 'N/A';
+            const occasion = params.get('occasion') || 'None';
+
+            document.getElementById('adults').innerText = adults;
+            document.getElementById('children').innerText = children;
+            document.getElementById('date').innerText = date;
+            document.getElementById('occasion').innerText = occasion;
+            document.getElementById('total-cost').innerText = `Rp. ${totalCost.toLocaleString('id-ID')},00`;
+
+            const form = document.getElementById('payment-form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                window.location.href = 'booking-confirmation.html';
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Spherica Dining</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="reservation.html">Reservation</a></li>
+                <li><a href="check-booking.html">Check Booking</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="payment">
+            <h2>Complete Your Payment</h2>
+            <p><strong>Date:</strong> <span id="date"></span></p>
+            <p><strong>Occasion:</strong> <span id="occasion"></span></p>
+            <p><strong>Number of Adults:</strong> <span id="adults"></span></p>
+            <p><strong>Number of Children:</strong> <span id="children"></span></p>
+            <p><strong>Total Cost:</strong> <span id="total-cost"></span></p>
+            <p>Please transfer the total amount to:</p>
+            <p><strong>BCA 6350169111 (Brenda Clarabelle Aurielia)</strong></p>
+            <p>Once the payment is completed, upload your proof of payment below:</p>
+            <form id="payment-form" action="booking-confirmation.html" method="post" enctype="multipart/form-data">
+                <label for="proof">Proof of Payment:</label><br>
+                <input type="file" id="proof" name="proof" accept="image/*" required><br><br>
+                <input type="submit" value="Submit Payment">
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Spherica Dining. All rights reserved.</p>
+    </footer>
+</body>
+</html>

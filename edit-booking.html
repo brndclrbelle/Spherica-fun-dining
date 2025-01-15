@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Edit your booking at Spherica Dining.">
+    <title>Edit Booking - Spherica Dining</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const bookingCode = params.get('code') || 'Unknown';
+
+            document.getElementById('booking-code').innerText = bookingCode;
+
+            const form = document.getElementById('edit-booking-form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const occasion = document.getElementById('occasion').value.trim();
+                if (occasion) {
+                    alert(`Occasion updated to: ${occasion}`);
+                    window.location.href = 'check-booking.html';
+                } else {
+                    alert('Please enter a valid occasion.');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Spherica Dining</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="reservation.html">Reservation</a></li>
+                <li><a href="check-booking.html">Check Booking</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="edit-booking">
+            <h2>Edit Your Booking</h2>
+            <p>Booking Code: <strong id="booking-code"></strong></p>
+            <form id="edit-booking-form" action="#" method="post">
+                <label for="occasion">New Occasion:</label><br>
+                <input type="text" id="occasion" name="occasion" required><br><br>
+                <input type="submit" value="Update Occasion">
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Spherica Dining. All rights reserved.</p>
+    </footer>
+</body>
+</html>

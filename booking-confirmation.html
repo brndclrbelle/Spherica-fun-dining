@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Booking confirmation at Spherica Dining.">
+    <title>Booking Confirmation - Spherica Dining</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Generate a random booking code
+            const bookingCode = Math.floor(100000 + Math.random() * 900000);
+            document.getElementById('booking-code').innerText = bookingCode;
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Spherica Dining</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="reservation.html">Reservation</a></li>
+                <li><a href="check-booking.html">Check Booking</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="confirmation">
+            <h2>Thank You for Your Reservation!</h2>
+            <p>Your booking is confirmed. Your booking code is: <strong id="booking-code"></strong></p>
+            <p>You will enjoy a luxurious <strong>18-course meal</strong> featuring the finest molecular gastronomy creations, designed to provide a unique and unforgettable dining experience.</p>
+            <p>If you or any of your guests have food allergies or if you would like to celebrate a special occasion, please contact us via WhatsApp at: <a href="https://wa.me/6287788791538" target="_blank"><strong>+62 877-8879-1538</strong></a>.</p>
+            <p>We look forward to welcoming you to Spherica Dining!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Spherica Dining. All rights reserved.</p>
+    </footer>
+</body>
+</html>
